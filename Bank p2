@@ -1,0 +1,87 @@
+import java.util.*;
+public class bank {
+
+    public static void main(String[] args) {
+        String acc;
+        String name;
+        String acc_type;
+        long balance = 10000;
+        long amt;
+        //here we open new account
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Account No: ");
+        acc = sc.next();
+        System.out.print("Enter Account type: ");
+        System.out.print("1.saving");
+        System.out.print("2.current ");
+
+        int choice = sc.nextInt();
+        switch (choice) {
+
+            case 1:
+                System.out.println("Saving");
+                break;
+            case 2:
+                System.out.println("current");
+                break;
+        }
+        // acc_type = sc.next();
+        System.out.print("Enter Name: ");
+        name = sc.next();
+
+
+        //here dispaly user data like sanjit is a user then its data
+
+        System.out.println("*****Bank statement*****");
+        System.out.println("Name of account holder: " + name);
+        System.out.println("Account no.: " + acc);
+        // System.out.println("Account type: " + acc_type);   //if user write then acc_type otherwise switch address
+        System.out.println("Account type: " + choice);
+        System.out.println("Balance: " + balance);
+        Scanner bal = new Scanner(System.in);
+
+        //list of Enquary's
+        int ch;
+        do {
+            System.out.println("1.Check Balance\n2.Enter Deposite Amount\n3.Enter Withdraw Amount\n4.Exite467");
+
+             ch = bal.nextInt();
+            switch (ch) {
+                case 1:
+                    System.out.println(" Available Balance: " + balance);
+                    break;
+                case 2:
+
+                    System.out.println("Deposite Amount:");
+                    amt = sc.nextLong();
+                    balance = balance + amt;
+                    System.out.println(balance + amt);//remove nantr
+
+
+                    break;
+                case 3:
+
+                    System.out.println("Withdraw Amount:");
+                    amt = sc.nextLong();
+                    if (balance >= amt) {
+                        balance = balance - amt;
+                        System.out.println("Balance after withdrawal: " + balance);
+                    } else {
+                        System.out.println("Your balance is less than " + amt + "\tTransaction failed...!!");
+                    }
+
+                    break;
+
+                case 4:
+                default:
+                    System.out.println("Thank you!123");
+
+break;
+            }
+        }
+        while(ch!=4);
+    }
+
+}
+
